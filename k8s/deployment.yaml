@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: devshelf
-        image: nginx:latest
+        image: 500888951988.dkr.ecr.eu-north-1.amazonaws.com/devshelf-app:ed334c53004d5870eba385199f2997b9524139a0
         ports:
         - containerPort: 80
 ---
