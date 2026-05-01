@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: devshelf
-        image: 500888951988.dkr.ecr.eu-north-1.amazonaws.com/devshelf-app:ed334c53004d5870eba385199f2997b9524139a0
+        image: 500888951988.dkr.ecr.eu-north-1.amazonaws.com/devshelf-app:26022fada3b9ac54949ab3bb9de6201404e3c21e
         ports:
         - containerPort: 80
 ---
