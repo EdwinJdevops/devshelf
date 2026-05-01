@@ -1,44 +1,46 @@
 # DevShelf — GitOps Internal Developer Platform
 
-> A self-service platform that provisions production-grade AWS 
-> environments automatically via GitOps. Built on AWS, Terraform, 
-> ArgoCD, and GitHub Actions.
+> Production-grade GitOps IDP on AWS. Push code. Kubernetes deploys itself.
 
-## The Problem It Solves
-Developer needs an environment → opens a ticket → waits 3 days.  
-With DevShelf → pushes to Git → environment live in minutes.
+[
+
+![CI](https://github.com/EdwinJdevops/devshelf/actions/workflows/ci.yaml/badge.svg)
+
+](https://github.com/EdwinJdevops/devshelf/actions/workflows/ci.yaml)
+
+---
+
+## What It Does
+
+Developer pushes code → GitHub Actions builds Docker image → pushes to AWS ECR → ArgoCD detects change → Kubernetes deploys automatically. Zero manual steps.
 
 ## Stack
+
 | Layer | Tool |
 |-------|------|
-| Infrastructure as Code | Terraform |
+| Cloud | AWS EC2 (eu-north-1) |
+| Kubernetes | K3s |
 | GitOps Engine | ArgoCD |
 | CI/CD | GitHub Actions |
-| Container Orchestration | AWS ECS |
-| Observability | Prometheus + Grafana |
-| Cloud | AWS (VPC, EC2, ECS, S3, IAM, Lambda) |
-| Cost Management | Python + AWS Cost Explorer |
-| Secrets | AWS Secrets Manager |
-
-## Build Status
-- [x] Remote Terraform state (S3 + DynamoDB)
-- [x] VPC with public/private subnets
-- [ ] ArgoCD GitOps engine
-- [ ] CI/CD pipeline
-- [ ] Observability stack
-- [ ] FinOps automation
+| Container Registry | AWS ECR |
+| Auth | IAM Instance Profile |
+| IaC | Terraform (in progress) |
+| Observability | Prometheus + Grafana (in progress) |
+| Application | Python Flask |
 
 ## Phases
+
 | Phase | Description | Status |
 |-------|-------------|--------|
-| 1 | AWS Foundation — VPC, IAM, S3 backend | ✅ Done |
-| 2 | GitOps Core — ArgoCD | 🔨 In Progress |
-| 3 | CI/CD Pipeline — GitHub Actions | Pending |
-| 4 | Observability — Prometheus + Grafana | Pending |
-| 5 | FinOps Intelligence — Cost Automation | Pending |
-| 6 | Self-Healing Infrastructure | Pending |
+| 1 | AWS Foundation + K3s cluster | ✅ Done |
+| 2 | ArgoCD GitOps engine | ✅ Done |
+| 3 | GitHub Actions CI/CD + ECR | ✅ Done |
+| 4 | Observability — Prometheus + Grafana | 🔨 In Progress |
+| 5 | Terraform IaC | Pending |
+| 6 | Self-Healing + FinOps | Pending |
 
 ## Author
-**Edwin Jonathan** — Cloud & DevOps Engineer  
-Lagos, Nigeria → Building globally  
-[LinkedIn](https://www.linkedin.com/in/edwin-jonathan-1094093b0)
+
+**Edwin Jonathan** — Cloud & DevOps Engineer
+Lagos, Nigeria → Building globally
+[LinkedIn](https://www.linkedin.com/in/edwin-jonathan-1094093b0) • [X](https://x.com/TheCloudDeveng)
